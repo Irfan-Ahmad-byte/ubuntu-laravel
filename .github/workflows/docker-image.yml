@@ -31,4 +31,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{secrets.DOCKER_HUB_USERNAME}}/ubuntu-laravel:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/ubuntu-laravel:$(date +'%s')
