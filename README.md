@@ -28,7 +28,7 @@ The image can be run using a compose.yml file like so:
 
 services:
   app:
-    build: .
+    image: personalirfan/ubuntu-laravel
     container_name: ubuntu-laravel
     networks:
       - my_network
