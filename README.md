@@ -57,7 +57,13 @@ networks:
 
 On the other hand it can also be run through docker cli as follows:
 
-First make sure that the MySQL instance is running
+First create a network
+
+```
+docker network create my_network
+```
+
+Then make sure that the MySQL instance is running
 
 ```
 docker run -d \

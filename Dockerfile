@@ -19,6 +19,8 @@ RUN add-apt-repository ppa:ondrej/php && apt-get update && apt-get -y install ph
 
 # Copy the script to setup github
 COPY --chown=1000:1000 /setup/gh.sh /setup/gh.sh
+# Make the script executable
+RUN chmod +x /setup/gh.sh
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
@@ -32,3 +34,6 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
 
 RUN composer global require "laravel/installer=~1.1"
+
+# Set Git config based on passed arguments
+ENTRYPOINT ["/setup/gh.sh"]
