@@ -87,4 +87,4 @@ License
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ## Contact
-For any questions or issues, please contact irfan.ahmad.mlka@gmail.com.
+For any questions or issues, please contact https://github.com/irfan-ahmad-byte.
