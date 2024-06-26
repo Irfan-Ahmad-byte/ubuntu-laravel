@@ -32,6 +32,3 @@ RUN echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 RUN /bin/bash -c "source ~/.bashrc"
 
 RUN composer global require "laravel/installer=~1.1"
-
-# Set Git config based on passed arguments
-ENTRYPOINT ["/setup/gh.sh"]
