@@ -17,10 +17,11 @@ if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_EMAIL" ] && [ -n "$GITHUB_TOKEN" ]; then
     git config --global user.email "$GIT_EMAIL"
     echo "$GITHUB_TOKEN" | gh auth login --with-token
     gh auth setup-git
-    git config --global credential.helper store
     # remove git credentials from the env
     unset GIT_USERNAME
     unset GITHUB_TOKEN
+    
+    git config --global credential.helper store
     echo "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com" > ~/.git-credentials
 fi
 
