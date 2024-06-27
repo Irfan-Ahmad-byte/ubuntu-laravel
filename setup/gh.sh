@@ -23,9 +23,6 @@ GITHUB_TOKEN=$1
 if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_EMAIL" ]; then
     git config --global user.name "$GIT_USERNAME"
     git config --global user.email "$GIT_EMAIL"
-    echo "$GITHUB_TOKEN" | gh auth login --with-token
-    unset GITHUB_TOKEN
-    gh auth setup-git
 
     # echo "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com" > ~/.git-credentials
 fi
