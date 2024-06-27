@@ -12,7 +12,15 @@ dpkg -i gh_2.52.0_linux_amd64.deb
 
 source ~/.bashrc
 
-if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_EMAIL" ] && [ -n "$GITHUB_TOKEN" ]; then
+if [ -z "$1" ]; then
+  echo "Error: GitHub token is not provided."
+  echo "Usage: docker run personalirfan/ubuntu-laravel:latest <github_token>"
+  exit 1
+fi
+
+GITHUB_TOKEN=$1
+
+if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_EMAIL" ]; then
     git config --global user.name "$GIT_USERNAME"
     git config --global user.email "$GIT_EMAIL"
     echo "$GITHUB_TOKEN" | gh auth login --with-token
