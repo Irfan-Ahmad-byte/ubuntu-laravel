@@ -18,7 +18,7 @@ if [ -n "$GIT_USERNAME" ] && [ -n "$GIT_EMAIL" ] && [ -n "$GITHUB_TOKEN" ]; then
     echo "$GITHUB_TOKEN" | gh auth login --with-token
     gh auth setup-git
 
-    echo "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com" > ~/.git-credentials
+    # echo "https://$GIT_USERNAME:$GITHUB_TOKEN@github.com" > ~/.git-credentials
 fi
 
 exec "$@"
