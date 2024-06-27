@@ -86,6 +86,7 @@ docker run -d \
     -e GIT_EMAIL=your_git_email \
     -e GITHUB_TOKEN=your_github_token \
     ubuntu-laravel
+    your-github-token
 ```
 
 
